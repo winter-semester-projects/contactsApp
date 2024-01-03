@@ -1,32 +1,74 @@
-#include<iostream>
-#include "C:\Prjs\Contacts App\src\libs\usr_inpt.h"
-using std::cout;
+#include <iostream>
+#include <regex>
+using std::cout, std::cin, std::string, std::regex, std::regex_search, std::regex_replace, std::smatch;
 
-bool prompt(string& inpt) {
-    cout << "Do you want to add a new contact?\n";
+string const queries[6] = { "What is their first name?\n", "What is their last name?\n", "What is their phone number?\n", "What is their e-mail?\n", "What is their address?\n", "What is their related name?\n"};
 
-    if (inpt == "y") {
-        return true;
-    } else {
+string inpt[6];
 
-        return false;
-    }
+regex phoneNumber(R"((01[0-2]\d{8}$|015\d{8}$))");
+smatch mtchs1;
 
+regex email(R"((\D+@\w+\.\w+))");
+smatch mtchs2;
+
+string query() {
+
+    string nvl { };
+
+    cout << "Please, enter valid input...\n";
+
+    cin >> nvl;
+
+    return nvl;
 }
 
-string add(string data[6]) {
+void add() {
 
-    while (data[0] != "") {
-       cout << "FIRST NAME IS REQUIRED...\n";
+    int cntr { -1 };
+    for (auto i : queries) {
+        cout << i;
 
-       cin >> data[0]; 
+        ++cntr;
+        cin >> inpt[cntr];
+
+        if (cntr == 2) {
+
+            while (!std::regex_match(inpt[2], mtchs1, phoneNumber)) {
+            
+                inpt[2] = query();
+            }
+        }
+
+        if (cntr == 3) {
+
+            while (!std::regex_match(inpt[3], mtchs2, email)) {
+
+                inpt[3] = query();
+            }
+        }
     }
 
-    while (data[3] != "") { 
-        cout << "PHONE NUMBER IS REQUIRED...\n";
+    char toVieworNotToView { };
+ 
+    cout << "\nDo you want to view their contact info? [Y\\y|N\\n]\n";
 
-        cin >> data[3];
+    cin >> toVieworNotToView;
+
+    string const iHateHardCoding[6] { "First Name:\n", "\nLast Name:\n", "\nPhone Number:\n", "\nEmail:\n", "\nAddress:\n", "\nRelated Name:\n" };
+
+    if (tolower(toVieworNotToView) == 'y') {
+        int counterThingy { 0 };
+        for (auto i : inpt) {
+
+            if (i != "") {
+                cout << iHateHardCoding[counterThingy] << '\n';
+                cout << i;
+            }
+
+            ++counterThingy;   
+        }
     }
-
-    return *data;
 }
+
+
