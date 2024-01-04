@@ -1,10 +1,14 @@
 #include <iostream>
 #include <regex>
-using std::cout, std::cin, std::string, std::regex, std::regex_search, std::regex_replace, std::smatch;
+#include <vector>
+#include <array>
+using std::cout, std::cin, std::string, std::regex, std::regex_search, std::regex_replace, std::smatch, std::vector, std::array;
 
 string const queries[6] = { "What is their first name?\n", "What is their last name?\n", "What is their phone number?\n", "What is their e-mail?\n", "What is their address?\n", "What is their related name?\n"};
 
-string inpt[6];
+vector<array<string, 6>> contacts { };
+
+array<string, 6> inpt { };
 
 regex phoneNumber(R"((01[0-2]\d{8}$|015\d{8}$))");
 smatch mtchs1;
@@ -55,20 +59,22 @@ void add() {
 
     cin >> toVieworNotToView;
 
-    string const iHateHardCoding[6] { "First Name:\n", "\nLast Name:\n", "\nPhone Number:\n", "\nEmail:\n", "\nAddress:\n", "\nRelated Name:\n" };
+    string const iHateHardCoding[6] { "First Name:", "Last Name:", "Phone Number:", "Email:", "Address:", "Related Name:" };
 
     if (tolower(toVieworNotToView) == 'y') {
         int counterThingy { 0 };
         for (auto i : inpt) {
 
             if (i != "") {
-                cout << iHateHardCoding[counterThingy] << '\n';
+                cout << '\n' << iHateHardCoding[counterThingy] << '\n';
                 cout << i;
             }
 
             ++counterThingy;   
         }
     }
+
+    contacts.push_back(inpt);
 }
 
 
