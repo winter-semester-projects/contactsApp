@@ -10,6 +10,7 @@ bool locater(string nm) {
         if (strcmp((*i)[0].c_str(), nm.c_str()) == 0) {
 
             found = true;
+            i = { };
         }
     }
 
@@ -18,22 +19,14 @@ bool locater(string nm) {
 
 void del() {
 
-    string nm { };
+    // `locater()` does not only locate the name... if it finds it, then it *will* delete it!
 
-    cout << "What is their name?\n";
-
-    cin >> nm;
-
-    while (!locater(nm)) {
+    while (!locater(validate<string>("What is their name?\n"))) {
 
         sleep(0.3);
 
         cout << "There is no contact with that name!\n";
-
-        del();
     }
-
-    sleep(0.3);
 
     cout << "\nDeleting...\n";
 
