@@ -10,7 +10,7 @@ bool locater(string nm) {
         if (strcmp((*i)[0].c_str(), nm.c_str()) == 0) {
 
             found = true;
-            i = { };
+            *i = { };
         }
     }
 
