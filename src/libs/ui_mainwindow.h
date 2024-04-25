@@ -1,11 +1,3 @@
-/********************************************************************************
-** Form generated from reading UI file 'mainwindow.ui'
-**
-** Created by: Qt User Interface Compiler version 6.6.2
-**
-** WARNING! All changes made in this file will be lost when recompiling UI file!
-********************************************************************************/
-
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
@@ -56,21 +48,21 @@ public:
         retranslateUi(MainWindow);
 
         QMetaObject::connectSlotsByName(MainWindow);
-    } // setupUi
+    }
 
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Thingy", nullptr));
         menuHello_World->setTitle(QCoreApplication::translate("MainWindow", "Hello World", nullptr));
-    } // retranslateUi
+    }
 
 };
 
 namespace Ui {
     class MainWindow: public Ui_MainWindow {};
-} // namespace Ui
+}
 
 QT_END_NAMESPACE
 
-#endif // UI_MAINWINDOW_H
+#endif
