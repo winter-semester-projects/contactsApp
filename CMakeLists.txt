@@ -1,14 +1,11 @@
 cmake_minimum_required(VERSION 3.26)
-project(Contacts_App)
+project(Contacts_App LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(src)
-include_directories(src/libs)
-include_directories(src/libs/cmds)
+find_package(Qt6
+REQUIRED COMPONENTS Widgets Core Gui
+)
 
-add_executable(Contacts_App
-        src/libs/cmds/add.h
-        src/libs/cmds/del.h
-        src/libs/prompt.h
-        src/main.cpp)
+qt_standard_project_setup()
