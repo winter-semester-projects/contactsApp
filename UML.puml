@@ -1,0 +1,55 @@
+@startuml
+
+class User {
+
+  # Attribute : ID* usr_id = new ID
+  - Attribute : Password
+  + Operation() : User(usr_id)
+  + Operation() : EndSession(User* usr)
+
+}
+
+class Contacts {
+
+  # Attribute : str_contacts [std::vector<std::array<string, 6>>]
+  # Operation() : Contacts()
+  # Operation() : Search(Contacts* usr_contacts)
+}
+
+class Prompt<T> {
+  # Attribute : prmt
+  # Attribute : inpt<T>
+  + Operation() : Prompt(T& returnVl, const string& message="") : prmt(message)
+}
+
+class Match_Prompt {
+
+  # Attribute : expr [std::regex]
+  + Operation() : Match_Prompt(const regex& expression,\n const string& message,\n string& returnValue,\n int clim=-1,\n const string err="") : expr(expression), Prompt<string>(returnValue, message)
+
+
+}
+
+interface Search {
+
+  # Attribute : results
+  # Operation() : Search(Contacts* usr_contacts)
+  
+}
+
+
+interface ID {
+  + Attribute : date<time_t>
+  + {abstract} Operation() ID(time_t)
+}
+
+note left of Match_Prompt : "The function matches whatever expression in the string,\n that the user was prompted to enter; this function is used globally to\n match effectively, all filtered input."
+
+Match_Prompt <-- Prompt
+
+User <-- Contacts
+
+Search::Search --> Contacts::Search #line:red;line.bold;text:red : <<friend>>
+
+Search <-- Match_Prompt
+@enduml
