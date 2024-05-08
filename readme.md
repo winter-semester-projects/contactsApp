@@ -2,7 +2,7 @@
 
 ### Stores:
 
-The data gets stored in a standard container object, a vector, which itself has an indefinite amount of standard array container objects.
+The data gets stored in a standard container object, a vector, which clears itslef at the end of the program’s lifetime.
 
 ### Prompts:
 
