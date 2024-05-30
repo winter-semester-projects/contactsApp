@@ -10,9 +10,7 @@ struct Contacts {
 
     void operator+(array<string, 6> fContact) {
 
-        Contacts mContact;
-
-        mContact.str_contacts.push_back(fContact);
+        str_contacts.push_back(fContact);
     }
 
     void search(Contacts*, Search*, string);
