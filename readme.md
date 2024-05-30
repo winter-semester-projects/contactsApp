@@ -10,4 +10,4 @@ The data is ‘‘filtered,’’ using regular expressions, to make sure, the u
 
 ### Deletes:
 
-The data is deleted, whenever the user wishes… They would, however, have to enter data, that exists! A function is called, from a header file, to delete existing entries that the user points to, by name.
+The data is deleted, whenever the user wishes… They would, however, have to enter data, that exists.
