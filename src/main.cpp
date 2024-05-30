@@ -1,5 +1,8 @@
-#include<QtWidgets/QMainWindow>
-#include<src/libs/ui_mainwindow.h>
+#include "src/libs/components/mainwindow/ui_mainwindow.h"
+#include "src/libs/components/mainwindow/mainwindow.cpp"
+#include "src/libs/components/search/search_intr.cpp"
+
+#include<QtWidgets/QApplication>
 
 #include <iostream>
 using std::string;
@@ -29,13 +32,9 @@ int main(int argc, char* argv[]) {
 
     QApplication app(argc, argv);
 
-    QMainWindow* w = new QMainWindow;
+    mainwindow main;
 
-    MainWindow myWindow;
-
-    myWindow.setupUi(w);
-
-    w->show();
+    (main.w)->show();
 
     return app.exec();
 }

@@ -2,9 +2,9 @@ add_executable(Contacts_App ${SOURCES})
 
 qt_add_executable(Contacts_App
                 main.cpp
-                mainwindow.cpp
-                mainwindow.ui 
-                 )
+                src/libs/components/mainwindow/mainwindow.cpp
+                src/libs/components/search/search_intr.cpp
+                )
 
 set_target_properties(Contacts_App PROPERTIES
     WIN32_EXECUTABLE TRUE
