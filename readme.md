@@ -11,3 +11,8 @@ The data is ‘‘filtered,’’ using regular expressions, to make sure, the u
 ### Deletes:
 
 The data is deleted, whenever the user wishes… They would, however, have to enter data, that exists.
+
+### Mahros's task:
+
+- i want to know what should i do in this project.
+- what is my task.
