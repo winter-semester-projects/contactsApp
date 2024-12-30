@@ -1,6 +1,5 @@
-#include "src/libs/components/mainwindow/ui_mainwindow.h"
 #include "src/libs/components/mainwindow/mainwindow.cpp"
-#include "src/libs/components/search/search_intr.cpp"
+#include "src/libs/components/search_box/search_box.cpp"
 
 #include<QtWidgets/QApplication>
 
@@ -34,7 +33,11 @@ int main(int argc, char* argv[]) {
 
     mainwindow main;
 
+    search_bar SearchFun;
+
     (main.w)->show();
+
+    (SearchFun.mw_sb)->show();
 
     return app.exec();
 }

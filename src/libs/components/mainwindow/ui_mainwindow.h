@@ -35,8 +35,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(843, 565);
-        MainWindow->setMaximumSize(QSize(843, 578));
+        MainWindow->resize(800, 565);
+        MainWindow->setMaximumSize(QSize(800, 578));
         actionClear = new QAction(MainWindow);
         actionClear->setObjectName("actionClear");
         centralwidget = new QWidget(MainWindow);
@@ -95,7 +95,7 @@ public:
         const bool __sortingEnabled = listWidget->isSortingEnabled();
         listWidget->setSortingEnabled(false);
         QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
-        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "Sherif M. Haraedy", nullptr));
+        ___qlistwidgetitem->setText(QCoreApplication::translate("MainWindow", "Nickname", nullptr));
         listWidget->setSortingEnabled(__sortingEnabled);
 
         menuLog_Out->setTitle(QCoreApplication::translate("MainWindow", "Log Out", nullptr));
